@@ -5,7 +5,7 @@
 #include <io.h>
 
 
-/*Функция которая делает уровень*/
+/*Функция которая делает начальную таблицу*/
 
 void tabl0(char stolb[], char stroka[], char tabl1[][10]) {
 	printf("   ");
