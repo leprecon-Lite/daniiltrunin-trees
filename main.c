@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
@@ -9,7 +10,8 @@ void output(char stolb[], char stroka[], char tabl1[][10], char tablproverka1[][
 int proverka(char tabl1[][10], char tablproverka1[][10], char tablproverka2[][10]);
 void hard();
 void rules();
-void cheatcode();
+void cheatcode(char tabl1[][10]);
+
 
 int main() {
 	setlocale(LC_ALL, "RUS");
@@ -167,7 +169,8 @@ int main() {
 		case '4'://кнопка 4
 			return '0';
 		case '5'://кнопка 5
-			cheatcode();
+
+			cheatcode(tabl1);
 			puts("Для продолжения нажмите клавишу Enter");
 			break;
 		default:
@@ -272,6 +275,12 @@ void hard() {
 	puts("Есть три сложности:\n   Лёгкая сложность - игроку допускается ошибиться 10 раз.\n   Средняя сложность - игроку допускается ошибиться 5 раз\n   Сложная сложность - игроку допускается ошибиться всего лишь 1 раз!\n");
 }
 
-void cheatcode() {
-	printf("\n Точка 1  -> [0][6]	\n Точка 2  -> [1][2]	\n Точка 3  -> [1][4]	\n Точка 4  -> [1][8]	\n Точка 5  -> [2][6]	\n Точка 6  -> [3][0]	\n Точка 7  -> [3][3]	\n Точка 8  -> [3][8]	\n Точка 9  -> [4][6]	\n Точка 10 -> [5][0]	\n Точка 11 -> [5][9]	\n Точка 12 -> [6][3]	\n Точка 13 -> [6][5]	\n Точка 14 -> [6][7]	\n Точка 15 -> [7][1]	\n Точка 16 -> [8][9]	\n Точка 17 -> [9][0]	\n Точка 18 -> [9][2]	\n Точка 19 -> [9][4]	\n Точка 20 -> [9][7]\n");
+void cheatcode(char tabl1[][10]) {
+	int k = 1;
+	for (int i=0; i<10; i++)
+		for (int j=0; j<10; j++)
+			if (tabl1[i][j] == '2') {
+				printf("\nТочка %d -> [%d][%d]\n", k, i, j);
+				k++;
+			}
 }
